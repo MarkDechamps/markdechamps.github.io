@@ -58,39 +58,43 @@
 
 <div class="section-container border-section-container">
     <div class="container">
+      <div>
+      <h3><b><a target="_blank" href="https://bit.ly/3s0RFO2">Inschrijven / Inscriptions</a></b></h3>
+      </br></br>
+    </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="text-center">
                         <h3>Deelnemerslijst</h3><h6> (last update 19/02/2021)</h6>
-                        <table>
-                          <tr><th>Naam/Nom</th><th>Elo rating</th></tr>
-                          <tr><td>Adrian Roos</td><td>	2312</td></tr>
-                          <tr><td>Steven Stinis</td><td>2210</td></tr>
-                          <tr><td>Sander Levevere</td><td>2070</td></tr>
-                          <tr><td>Mark Dechamps</td><td>2006</td></tr>
-                          <tr><td>Joris Pelemans</td><td>1980</td></tr>
-                          <tr><td>Nando De Blende</td><td>1972</td><td>(start om 20u)</td></tr>
-                          <tr><td>Kevin Demiddele</td><td>1934</td></tr>
-                          <tr><td>Sarah Dierckens</td><td>1860</td></tr>
-                          <tr><td>Guido Dechamps</td><td>1800</td></tr>
-                          <tr><td>Tom Beyen</td><td>1771</td></tr>
-                          <tr><td>Stef Renkens</td><td>1653</td></tr>
-                          <tr><td>Benno Demey</td><td>1650</td></tr>
-                          <tr><td>Bart Marescaux</td><td>1650</td></tr>
-                          <tr><td>Jacques Mahieu</td><td>1526</td></tr>
-                          <tr><td>Koen Palstermans</td><td>1498</td></tr>
-                          <tr><td>Tony Mouton</td><td>1457</td></tr>                          
-                          <tr><td>Koenraad Moeyersons</td><td>1423</td></tr>
-                          <tr><td>Frederik Ducuroir</td><td>1342</td></tr>
-                          <tr><td>Dhanyadha Bharathi</td><td>1308</td></tr>
-                          <tr><td>Lotus Decraene</td><td>1268</td></tr>
-                          <tr><td>Daan Hanssens</td><td>1239</td></tr>
-                          <tr><td>Kobe Vandenhole</td><td>0</td></tr>
-                          <tr><td>Laurens Covens</td><td>0</td></tr>
-                          <tr><td>Simon Vandeputte</td><td>0</td></tr>
-                          <tr><td>Wesley Declerck</td><td>0</td></tr>
-                          <tr><td>Benny Dechamps</td><td>0</td></tr>
-                          <tr><td>Lucas Verschuere</td><td>0</td></tr>
+                        <table id="inschrijvingen">
+                          <tr><th>#</th><th>Naam/Nom</th><th>Elo rating</th></tr>
+                          <tr><td></td><td>Adrian Roos</td><td>	2312</td></tr>
+                          <tr><td></td><td>Steven Stinis</td><td>2210</td></tr>
+                          <tr><td></td><td>Sander Levevere</td><td>2070</td></tr>
+                          <tr><td></td><td>Mark Dechamps</td><td>2006</td></tr>
+                          <tr><td></td><td>Joris Pelemans</td><td>1980</td></tr>
+                          <tr><td></td><td>Nando De Blende</td><td>1972</td><td>(start om 20u)</td></tr>
+                          <tr><td></td><td>Kevin Demiddele</td><td>1934</td></tr>
+                          <tr><td></td><td>Sarah Dierckens</td><td>1860</td></tr>
+                          <tr><td></td><td>Guido Dechamps</td><td>1800</td></tr>
+                          <tr><td></td><td>Tom Beyen</td><td>1771</td></tr>
+                          <tr><td></td><td>Stef Renkens</td><td>1653</td></tr>
+                          <tr><td></td><td>Benno Demey</td><td>1650</td></tr>
+                          <tr><td></td><td>Bart Marescaux</td><td>1650</td></tr>
+                          <tr><td></td><td>Jacques Mahieu</td><td>1526</td></tr>
+                          <tr><td></td><td>Koen Palstermans</td><td>1498</td></tr>
+                          <tr><td></td><td>Tony Mouton</td><td>1457</td></tr>
+                          <tr><td></td><td>Koenraad Moeyersons</td><td>1423</td></tr>
+                          <tr><td></td><td>Frederik Ducuroir</td><td>1342</td></tr>
+                          <tr><td></td><td>Dhanyadha Bharathi</td><td>1308</td></tr>
+                          <tr><td></td><td>Lotus Decraene</td><td>1268</td></tr>
+                          <tr><td></td><td>Daan Hanssens</td><td>1239</td></tr>
+                          <tr><td></td><td>Kobe Vandenhole</td><td>0</td></tr>
+                          <tr><td></td><td>Laurens Covens</td><td>0</td></tr>
+                          <tr><td></td><td>Simon Vandeputte</td><td>0</td></tr>
+                          <tr><td></td><td>Wesley Declerck</td><td>0</td></tr>
+                          <tr><td></td><td>Benny Dechamps</td><td>0</td></tr>
+                          <tr><td></td><td>Lucas Verschuere</td><td>0</td></tr>
 
                       </table>
                     </div>
@@ -169,6 +173,15 @@
   document.addEventListener("DOMContentLoaded", function (event) {
     navActivePage();
   });
+</script>
+<script>
+var table = document.getElementsByTagName('table')[0],
+  rows = table.getElementsByTagName('tr'),
+  text = 'textContent' in document ? 'textContent' : 'innerText';
+
+for (var i = 1, len = rows.length; i < len; i++) {
+  rows[i].children[0][text] = i + ') ' + rows[i].children[0][text];
+}
 </script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID
