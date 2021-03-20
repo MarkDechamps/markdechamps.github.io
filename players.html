@@ -10,10 +10,17 @@
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
-  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+
   <title>Online Klassiek Schaak / Tournoi d'échecs classique en ligne</title>
 
-<link href="./main.a3f694c0.css" rel="stylesheet"></head>
+<link href="./main.a3f694c0.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="pgn/prettify.css" />
+<link rel="stylesheet" href="pgn/layout.css" />
+<script src="pgn/pgnv.js" type="text/javascript" ></script>
+<script src="pgn/prettify.js" type="text/javascript" ></script>
+</head>
 
 <body>
   <div class="text-center">
@@ -63,6 +70,7 @@
     </div>
 </div>
 
+
 <div class="section-container border-section-container">
     <div class="container">
             <div class="row">
@@ -71,12 +79,18 @@
                         <h3>Lichess TV</h3>
                         <h4>Klik op de speler om zijn actieve partij te volgen</h4>
                         <h4>Cliquez sur le joueur pour suivre sa partie active</h4>
-                        <table class="text-center">
+
+<div id="board"></div>
+<table class="text-center" id="playertable">
 
 
 
 
-<tr><td><a href="https://lichess.org/@/theunknownonex/tv">Adrian Roos</a></td></tr>
+
+
+
+
+<tr><td id="name"><a href="https://lichess.org/@/theunknownonex/tv">Adrian Roos</a><div id="theunknownonex"></div></td></tr>
 <tr><td><a href="https://lichess.org/@/Thulp/tv">	Steven Stinis	</a></td></tr>
 <tr><td><a href="https://lichess.org/@/markdechamps/tv">	Mark Dechamps	</a></td></tr>
 <tr><td><a href="https://lichess.org/@/pelemanov/tv">	Joris Pelemans	</a></td></tr>
@@ -228,7 +242,38 @@
 </script>
 
 -->
+<script>
+ //const url = 'https://lichess.org/@/TheUnknownOnex/search?dateMin=2021-03-19&dateMax=2021-03-20&clock.initMin=5400&players.a=theunknownonex&sort.field=d&sort.order=desc'
 
+
+$('#playertable tr td').each(function() {
+    const theDiv = this.children[1];
+    if(theDiv){
+    const id=this.children[1].getAttribute("id").trim();
+
+    const url = 'https://lichess.org/api/games/user/'+id+'?max=1&moves=true&opening=true'
+    $.get(url, function(data) {
+       PGNV.pgnView(id,{ pgn: data, pieceStyle: 'merida' });
+       
+     });
+   }
+/*
+    const href=this.children[0].href;
+    const tvLink = href.split("@")[1];
+    const lichessname = tvLink.split("/tv")[0].split("/")[1];
+    const url = 'https://lichess.org/api/games/user/'+lichessname+'?max=1&moves=true&opening=true'
+
+    this.children[0].replaceWith('<a href="google.be">test</a>');
+*/
+    /*$.get(url, function(data) {
+       // JSON result in `data` variable
+       console.log(data);
+       PGNV.pgnView('board',{ pgn: data, pieceStyle: 'merida' });
+     });
+     */
+ });
+
+</script>
 
 
 <script type="text/javascript" src="./main.41beeca9.js"></script></body>
