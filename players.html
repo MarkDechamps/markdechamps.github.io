@@ -247,8 +247,8 @@
        const theDiv = this.parentElement.children[2];
 
        if(theDiv){
-       const id=theDiv.getAttribute("id").trim();
-       const url = 'https://lichess.org/api/games/user/'+id+'?max=1&moves=true'
+       const id=theDiv.getAttribute("id").trim();       
+        const url = 'https://lichess.org/api/user/'+id+'/current-game'
        $.get(url, function(data) {
           PGNV.pgnView('gameboard',{ pgn: data, pieceStyle: 'merida' });
         });
