@@ -1661,5 +1661,15 @@ if (myNewImage.complete == false)
 <!-- Verslag-->
 </div>
 </div>
+<script>
+    var els = document.querySelectorAll("a[href^='#jou']");
+    for (var i = 0, l = els.length; i < l; i++) {      
+      const str =els[i].textContent;
+      const mySubString = str.substring(str.lastIndexOf("(") + 1,str.lastIndexOf(")"));
+      const lichessUrl = 'https://lichess.org/@/'+mySubString+'/tv';
+      els[i].href = lichessUrl;
+    }
+</script>
+
 </body>
 </html>
