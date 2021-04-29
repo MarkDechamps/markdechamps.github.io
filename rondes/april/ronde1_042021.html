@@ -920,7 +920,7 @@ if (myNewImage.complete == false)
         <td class='tdr'>18</td>
         <td class='tdl'> </td>
         <td class='tdl'></td>
-        <td class='tdlb'><a href='#jou_013'>Mahieu, Jacques (CREB_MAHIEU_Jaques)</a></td>
+        <td class='tdlb'><a href='#jou_013'>Mahieu, Jacques (CREB_MAHIEU_Jacques)</a></td>
         <td class='tdr'> 18</td>
         <td class='tdr'>97528</td>
         <td class='tdr'>1526</td>
@@ -1481,7 +1481,7 @@ if (myNewImage.complete == false)
     <td class='tdr'>1.0</td>
     <td class='tdr'>(1683)</td>
     <td class='tdResult'>   -   </td>
-    <td class='tdl'><a href='#jou_013'>Mahieu, Jacques (CREB_MAHIEU_Jaques)</a></td>
+    <td class='tdl'><a href='#jou_013'>Mahieu, Jacques (CREB_MAHIEU_Jacques)</a></td>
     <td class='tdr'>1.0</td>
     <td class='tdr'>(1526)</td>
   </tr>
@@ -1663,7 +1663,7 @@ if (myNewImage.complete == false)
 </div>
 <script>
     var els = document.querySelectorAll("a[href^='#jou']");
-    for (var i = 0, l = els.length; i < l; i++) {      
+    for (var i = 0, l = els.length; i < l; i++) {
       const str =els[i].textContent;
       const mySubString = str.substring(str.lastIndexOf("(") + 1,str.lastIndexOf(")"));
       const lichessUrl = 'https://lichess.org/@/'+mySubString+'/tv';
