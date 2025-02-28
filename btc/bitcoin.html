@@ -194,7 +194,7 @@
             // Display results
             document.getElementById('results').innerHTML = ` 
                 <p><strong>BTC Price:</strong> $${btcData.prices[btcData.prices.length - 1][1].toFixed(2)}</p>
-                <p><strong>NVT Ratio:</strong> ${metrics.nvtRatio[metrics.nvtRatio.length - 1].toFixed(2)}</p>
+                <p><strong>NVT Ratio:</strong> ${metrics.nvtRatio[metrics.nvtRatio.length - 1].toFixed(6)}</p>
                 <p><strong>OBV:</strong> ${metrics.obv[metrics.obv.length - 1].toFixed(0)}</p>
                 <p><strong>Pi Cycle SMA 111:</strong> ${metrics.sma111[metrics.sma111.length - 1].toFixed(2)}</p>
                 <p><strong>Pi Cycle (2xSMA 350):</strong> ${metrics.piCycle[metrics.piCycle.length - 1].toFixed(2)}</p>
