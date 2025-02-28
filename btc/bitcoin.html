@@ -41,7 +41,7 @@
         // Fetch Bitcoin data from CoinGecko API with the provided API key
         async function fetchBtcData() {
             try {
-                const url = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=365`;
+                const url = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd,eur&days=365`;
                 const response = await fetch(url);
 
                 const btcData = await response.json();
@@ -193,7 +193,8 @@
 
             // Display results
             document.getElementById('results').innerHTML = ` 
-                <p><strong>BTC Price:</strong> $${btcData.prices[btcData.prices.length - 1][1].toFixed(2)}</p>
+                <p><strong>BTC Price (USD):</strong> $${btcData.prices[btcData.prices.length - 1][1].toFixed(2)}</p>
+                <p><strong>BTC Price (EUR):</strong> €${btcData.prices[btcData.prices.length - 1][2].toFixed(2)}</p>
                 <p><strong>NVT Ratio:</strong> ${metrics.nvtRatio[metrics.nvtRatio.length - 1].toFixed(6)}</p>
                 <p><strong>OBV:</strong> ${metrics.obv[metrics.obv.length - 1].toFixed(0)}</p>
                 <p><strong>Pi Cycle SMA 111:</strong> ${metrics.sma111[metrics.sma111.length - 1].toFixed(2)}</p>
